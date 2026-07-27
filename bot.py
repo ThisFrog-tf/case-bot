@@ -6,7 +6,11 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKe
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
 
 # --- НАСТРОЙКИ ---
-TOKEN = "8761248816:AAHCPxOJQgHLUf1mAlM3w27SwGThlhCHY5s"  # Не забудь вставить токен!
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN") 
 FILE_NAME = "user.json"
 CASE_PRICE = 100
 DAILY_BONUS = 5000000
