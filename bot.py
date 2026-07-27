@@ -10,7 +10,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv("BOT_TOKEN") 
+TOKEN = os.getenv("TOKEN") 
 FILE_NAME = "user.json"
 CASE_PRICE = 100
 DAILY_BONUS = 5000000
