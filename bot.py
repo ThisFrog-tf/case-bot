@@ -137,6 +137,19 @@ async def daily_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     else:
         await update.message.reply_text("⏳ Ты уже получал бонус. Приходи завтра!")
 
+my_name = "жабо"
+my_age = 15
+my_hobby = "бэкенд-разработка"
+
+async def about(update, context):
+    text = (
+        f"Привет! Меня зовут {my_name}.\n"
+        f"Мне {my_age} лет.\n"
+        f"Моё хобби: {my_hobby}.\n"
+        "Меня создал ученик CAP Education"
+    )
+    await update.message.reply_text(text)
+
 
 # --- ОБРАБОТЧИКИ ---
 
@@ -210,6 +223,7 @@ def main() -> None:
     application.add_handler(CallbackQueryHandler(button_click))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
     application.add_handler(MessageHandler(filters.COMMAND, unknown_command))
+    application.add_handler(CommandHandler("about", about)) 
 
     print("Бот с сохранением профиля и прогресса запущен!")
     application.run_polling(allowed_updates=Update.ALL_TYPES)
